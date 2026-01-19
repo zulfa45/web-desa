@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desa Kelor - Website Resmi</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">DESA KELOR</div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="umkm.html">UMKM Desa</a></li>
+        <li><a href="#peta-bawah">Peta Wilayah</a></li>
+      </ul>
+    </nav>
+
+    <section id="home" class="hero-modern">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content-modern">
+        <span class="welcome-badge">👋 Sugeng Rawuh</span>
+        <h1>DESA KELOR</h1>
+        <p class="tagline">
+          Mewujudkan Masyarakat Religius, Aman,Harmonis,Maju,Adil, dan Tertib.
+        </p>
+        <div class="hero-buttons">
+          <a href="#profil" class="btn-primary">Jelajahi Desa</a>
+          <a href="#wisata" class="btn-outline">Lihat Peta 🗺️</a>
+        </div>
+      </div>
+
+      <div class="hero-stats-container">
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-info">
+            <h3>3.233</h3>
+            <p>Penduduk</p>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fas fa-home"></i></div>
+          <div class="stat-info">
+            <h3>1.099</h3>
+            <p>Kepala Keluarga</p>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="stat-info">
+            <h3>7</h3>
+            <p>Padukuhan</p>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fas fa-store"></i></div>
+          <div class="stat-info">
+            <h3>30+</h3>
+            <p>UMKM Aktif</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <div class="arrow"></div>
+      </div>
+    </section>
+
+    <section id="profil" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Profil Desa</h2>
+          <p>Mengenal Jati Diri dan Semangat Membangun Desa Kelor</p>
+        </div>
+
+        <div class="profil-row sejarah-container">
+          <div class="profil-text">
+            <h3 class="heading-deco">Sejarah Singkat</h3>
+            <p>
+                <strong>Asal-Usul Nama:</strong> Sejarah Kalurahan Kelor, Kapanewon Karangmojo, Gunungkidul, tidak lepas dari karakteristik alamnya. Berdasarkan penelusuran sejarah, nama "Kelor" diyakini berasal dari banyaknya pohon kelor yang tumbuh di wilayah Krajan (pusat desa) pada masa lampau.
+            </p>
+
+            <p>
+                <strong>Berdirinya Desa Mandiri:</strong> Titik balik sejarah desa terjadi pada 20 Agustus 1930. Pada tanggal tersebut, Desa Kelor resmi memisahkan diri dari Kalurahan Wiladeg menjadi entitas mandiri. Bapak Mentotaruno tercatat sebagai Lurah pertama yang memimpin desa ini pada periode awal (1930–1932).
+            </p>
+            
+            
+
+            <p>
+                <strong>Potensi dan Perkembangan:</strong> Dengan karakteristik tanah karst yang berporositas tinggi, Kelor memiliki potensi besar dalam pertanian jati. Kini, desa ini telah bertransformasi menjadi Desa Wisata dengan ikon seperti Kali Talang, sembari terus menggali detail sejarah yang belum terungkap demi kelestarian budaya desa.
+            </p>
+          </div>
+          <div class="profil-img">
+            <img
+              src="assets/img/sejarah_desa.jpg"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x400/2e7d32/white?text=Ilustrasi+Sejarah'
+              "
+              alt="Sejarah Desa"
+            />
+          </div>
+        </div>
+
+        <div class="profil-row visi-misi-container">
+          <div class="card-visi">
+            <div class="icon-header">🎯</div>
+            <h3>Visi Desa</h3>
+            <blockquote>
+              "Terwujudnya Kehidupan Masyarakat Kalurahan Kelor Yang <span>Religius</span>,
+              <span>Aman</span>,<span>Harmonis</span>,<span>Maju</span>,<span>Adil</span>, dan <span>Tertib</span>."
+            </blockquote>
+          </div>
+
+          <div class="card-misi">
+            <div class="icon-header">🚀</div>
+            <h3>Misi Pembangunan</h3>
+            <ul>
+              <li>
+                <span class="check-icon">✓</span>
+                Meningkatkan kualitas kehidupan beragama dalam mewujudkan masyarakat Kelor yangberiman dan bertaqwa.
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                Meningkatkan sistem keamanan swakarsa dalam upaya terciptanya rasa aman di masyarakat Kelor.
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                Mewujudkan harmonisasi antar Kelembagaan yang ada di Kalurahahn Kelor sehingga terjalin sinergitas kinerja yang optimal.
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                Mengembangkan kecakapan dan keterampilan masyarakat Kelor menuju kemajuan dan peningkatan kesejahteraan.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="statistik" class="section bg-light">
+      <div class="section-title">
+        <h2>Statistik Desa</h2>
+      </div>
+      <div class="stats-container">
+        <div class="stat-item">
+          <h2>2.500+</h2>
+          <p>Penduduk</p>
+        </div>
+        <div class="stat-item">
+          <h2>850</h2>
+          <p>Kepala Keluarga</p>
+        </div>
+        <div class="stat-item">
+          <h2>7</h2>
+          <p>Padukuhan</p>
+        </div>
+        <div class="stat-item">
+          <h2>30+</h2>
+          <p>UMKM Aktif</p>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="pemerintahan" class="section">
+      <div class="section-title">
+        <h2>Perangkat Desa</h2>
+        <p>Melayani dengan Sepenuh Hati</p>
+      </div>
+      <div class="grid-container team-grid">
+        <div class="card team-card">
+          <div class="avatar">👨‍💼</div>
+          <h3>Suratman</h3>
+          <p>Kepala Desa</p>
+        </div>
+        <div class="card team-card">
+          <div class="avatar">👩‍💼</div>
+          <h3>Setiyawati, S.Pd</h3>
+          <p>Sekretaris Desa</p>
+        </div>
+        <div class="card team-card">
+          <div class="avatar">👮</div>
+          <h3>Mugito</h3>
+          <p>Kasi Pemerintahan</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="wisata" class="section bg-light">
+      <div class="section-title">
+        <h2>Peta Persebaran Lokasi</h2>
+        <p>Klik kartu di bawah ini untuk melihat lokasi detail di peta</p>
+      </div>
+
+      <h3 class="category-title">🏛️ Kantor & Balai Padukuhan</h3>
+      <div class="grid-container">
+        <div class="card" onclick="fokusKeLokasi(-7.9562022, 110.658971)">
+          <img
+            src="assets/img/kelurahan.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Kantor+Kelurahan'
+            "
+          />
+          <div class="card-content">
+            <h3>Kantor Kelurahan Kelor</h3>
+            <p>Pusat Pemerintahan Desa.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9581942, 110.6583742)">
+          <img
+            src="assets/img/balai_kelor.jpg"
+            class="card-img"
+            onerror="this.src = 'https://placehold.co/600x400?text=Balai+Kelor'"
+          />
+          <div class="card-content">
+            <h3>Balai Padukuhan Kelor</h3>
+            <p>Balai Warga Kelor.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.968893, 110.6578622)">
+          <img
+            src="assets/img/balai_ngunut_kidul.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Balai+Ngunut+Kidul'
+            "
+          />
+          <div class="card-content">
+            <h3>Balai Ngunut Kidul</h3>
+            <p>Balai Warga Ngunut Kidul.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.964584, 110.662236)">
+          <img
+            src="assets/img/balai_ngunut_lor.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Balai+Ngunut+Lor'
+            "
+          />
+          <div class="card-content">
+            <h3>Balai Ngunut Lor</h3>
+            <p>Balai Warga Ngunut Lor.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9543291, 110.6580671)">
+          <img
+            src="assets/img/balai_sudimoro.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Balai+Sudimoro'
+            "
+          />
+          <div class="card-content">
+            <h3>Balai Sudimoro</h3>
+            <p>Balai Warga Sudimoro.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9607417, 110.6594343)">
+          <img
+            src="assets/img/balai_mengger.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Balai+Mengger'
+            "
+          />
+          <div class="card-content">
+            <h3>Balai Mengger</h3>
+            <p>Balai Warga Mengger.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9762532, 110.6589884)">
+          <img
+            src="assets/img/balai_slametan.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Balai+Slametan'
+            "
+          />
+          <div class="card-content">
+            <h3>Balai Slametan</h3>
+            <p>Balai Warga Slametan.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.977866, 110.66215)">
+          <img
+            src="assets/img/balai_karangayu.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Balai+Karangayu'
+            "
+          />
+          <div class="card-content">
+            <h3>Balai Karangayu</h3>
+            <p>Balai Warga Karangayu.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <h3 class="category-title">🏠 Rumah Perangkat Desa</h3>
+      <div class="grid-container">
+        <div class="card" onclick="fokusKeLokasi(-7.967928, 110.656421)">
+          <img
+            src="assets/img/rumah_lurah.jpg"
+            class="card-img"
+            onerror="this.src = 'https://placehold.co/600x400?text=Rumah+Lurah'"
+          />
+          <div class="card-content">
+            <h3>Rumah Bapak Lurah</h3>
+            <p>Kediaman Kepala Desa.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9669691, 110.6536772)">
+          <img
+            src="assets/img/rumah_carik.jpg"
+            class="card-img"
+            onerror="this.src = 'https://placehold.co/600x400?text=Rumah+Carik'"
+          />
+          <div class="card-content">
+            <h3>Rumah Ibu Carik</h3>
+            <p>Kediaman Sekretaris Desa.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.967417, 110.662029)">
+          <img
+            src="assets/img/rumah_jayabaya.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Rumah+Jagabaya'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Bapak Jagabaya</h3>
+            <p>Kediaman Kasi Pemerintahan.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.968872, 110.657634)">
+          <img
+            src="assets/img/rumah_dukuh_ngunut_kidul.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Dukuh+Ngunut+Kidul'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Ngunut Kidul</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.964189, 110.661418)">
+          <img
+            src="assets/img/rumah_dukuh_ngunut_lor.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Dukuh+Ngunut+Lor'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Ngunut Lor</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.958399, 110.661198)">
+          <img
+            src="assets/img/rumah_dukuh_kelor.jpg"
+            class="card-img"
+            onerror="this.src = 'https://placehold.co/600x400?text=Dukuh+Kelor'"
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Kelor</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.955057, 110.654783)">
+          <img
+            src="assets/img/rumah_dukuh_sudimoro.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Dukuh+Sudimoro'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Sudimoro</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9621026, 110.6596887)">
+          <img
+            src="assets/img/rumah_dukuh_mengger.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Dukuh+Mengger'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Mengger</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.972792, 110.6601)">
+          <img
+            src="assets/img/rumah_dukuh_slametan.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Dukuh+Slametan'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Slametan</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.978695, 110.661728)">
+          <img
+            src="assets/img/rumah_dukuh_karangayu.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Dukuh+Karangayu'
+            "
+          />
+          <div class="card-content">
+            <h3>Rumah Dukuh Karangayu</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <h3 class="category-title">🕌 Tempat Ibadah</h3>
+      <div class="grid-container">
+        <div class="card" onclick="fokusKeLokasi(-7.9790574, 110.6633337)">
+          <img
+            src="assets/img/masjid_nurul_jannah.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Masjid+Nurul+Jannah'
+            "
+          />
+          <div class="card-content">
+            <h3>Masjid Nurul Jannah</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9760911, 110.6590615)">
+          <img
+            src="assets/img/masjid_nurul_hidayah.jpg"
+            class="card-img"
+            onerror="
+              this.src =
+                'https://placehold.co/600x400?text=Masjid+Nurul+Hidayah'
+            "
+          />
+          <div class="card-content">
+            <h3>Masjid NURUL HIDAYAH</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9689879, 110.6589449)">
+          <img
+            src="assets/img/masjid_nurul_muttaqin.jpg"
+            class="card-img"
+            onerror="
+              this.src =
+                'https://placehold.co/600x400?text=Masjid+Nurul+Muttaqin'
+            "
+          />
+          <div class="card-content">
+            <h3>Masjid Nurul Muttaqin</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9680038, 110.6632201)">
+          <img
+            src="assets/img/mushola_alhikmah.jpg"
+            class="card-img"
+            onerror="this.src = 'https://placehold.co/600x400?text=Mushola'"
+          />
+          <div class="card-content">
+            <h3>Mushola Al-Hikmah</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.964373, 110.6613727)">
+          <img
+            src="assets/img/masjid_nurul_huda.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Masjid+Nurul+Huda'
+            "
+          />
+          <div class="card-content">
+            <h3>Masjid Nurul Huda Ngunut Lor</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9624424, 110.6584503)">
+          <img
+            src="assets/img/mushola_nurul_iman.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Mushola+Nurul+Iman'
+            "
+          />
+          <div class="card-content">
+            <h3>Mushola Nurul Iman</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9561106, 110.6545929)">
+          <img
+            src="assets/img/masjid_nurul_huda_kelor.jpg"
+            class="card-img"
+            onerror="
+              this.src =
+                'https://placehold.co/600x400?text=Masjid+Nurul+Huda+Kelor'
+            "
+          />
+          <div class="card-content">
+            <h3>Masjid Nurul Huda Kelor</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9659129, 110.655342)">
+          <img
+            src="assets/img/mushola_2.jpg"
+            class="card-img"
+            onerror="this.src = 'https://placehold.co/600x400?text=Mushola'"
+          />
+          <div class="card-content">
+            <h3>Mushola</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9565452, 110.6582238)">
+          <img
+            src="assets/img/gereja_katolik.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=Gereja+Katolik'
+            "
+          />
+          <div class="card-content">
+            <h3>Gereja St. Petrus & Paulus</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <h3 class="category-title">🏫 Fasilitas Pendidikan</h3>
+      <div class="grid-container">
+        <div class="card" onclick="fokusKeLokasi(-7.9684085, 110.6587923)">
+          <img
+            src="assets/img/tk_pkk_kelor.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=TK+PKK+Kelor'
+            "
+          />
+          <div class="card-content">
+            <h3>TK PKK Kelor Karangmojo</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+        <div class="card" onclick="fokusKeLokasi(-7.9715022, 110.6595347)">
+          <img
+            src="assets/img/sdn_slametan.jpg"
+            class="card-img"
+            onerror="
+              this.src = 'https://placehold.co/600x400?text=SD+Negeri+Slametan'
+            "
+          />
+          <div class="card-content">
+            <h3>SD Negeri Slametan</h3>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="peta-bawah" class="section">
+      <div class="section-title">
+        <h2>Peta Wilayah Desa</h2>
+        <p>Batas Administrasi dan Persebaran Lokasi Penting</p>
+      </div>
+      <div id="map-canvas"></div>
+    </section>
+    <section id="galeri-kkn" class="section">
+      <div class="section-title">
+        <h2>Galeri KKN-T UDB 25</h2>
+        <p>Kenangan & Pengabdian</p>
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-wrapper" id="sliderWrapper">
+          <div class="slide">
+            <img
+              src="assets/img/kkn_1.jpg"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x450/2e7d32/white?text=Kegiatan+KKN+1'
+              "
+              alt="Kegiatan KKN 1"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/img/kkn_2.jpg"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x450/1b5e20/white?text=Kegiatan+KKN+2'
+              "
+              alt="Kegiatan KKN 2"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/img/kkn_3.jpg"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x450/388e3c/white?text=Kegiatan+KKN+3'
+              "
+              alt="Kegiatan KKN 3"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/img/kkn_4.jpg"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x450/4caf50/white?text=Kegiatan+KKN+4'
+              "
+              alt="Kegiatan KKN 4"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/img/kkn_5.jpg"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x450/66bb6a/white?text=Kegiatan+KKN+5'
+              "
+              alt="Kegiatan KKN 5"
+            />
+          </div>
+        </div>
+
+        <!-- <button class="slider-btn prev-btn" onclick="moveSlide(-1)">
+          &#10094;
+        </button>
+        <button class="slider-btn next-btn" onclick="moveSlide(1)">
+          &#10095;
+        </button> -->
+      </div>
+
+      <div class="kkn-info">
+        <h3>KKN Universitas Duta Bangsa Surakarta</h3>
+        <p>Bersinergi Membangun Potensi Desa Kelor.</p>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>DESA KELOR</h3>
+          <p>
+            Merwujudnya Kehidupan Masyarakat Kalurahan Kelor Yang Religius, Aman,Harmonis,Maju,Adil, dan Tertib.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Jelajahi</h3>
+          <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#profil">Profil Desa</a></li>
+            <li><a href="umkm.html">UMKM Desa</a></li>
+            <li><a href="#peta-bawah">Peta Wilayah</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Hubungi Kami</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span
+                >Kelor, Kec. Karangmojo, Gunungkidul, DIY
+                55891</span
+              >
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>admin@desakelor.id</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>(0274) 123-4567</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Ikuti Kami</h3>
+          <p>Dapatkan informasi terbaru melalui sosial media kami:</p>
+          <div class="social-links">
+            <a href="#" class="social-icon facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social-icon youtube"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a
+              href="https://wa.me/628123456789"
+              target="_blank"
+              class="social-icon whatsapp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Pemerintah Desa Kelor. Dibuat dengan ❤️ oleh Mahasiswa
+          KKN.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // --- 1. CONFIG NAVIGASI ---
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+      window.addEventListener("scroll", function () {
+        document
+          .querySelector("nav")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // --- 2. UPDATE PUSAT PETA (Agar marker terlihat tengah) ---
+      var latPusat = -7.965; // Disesuaikan dengan data baru
+      var lngPusat = 110.659;
+
+      var map = L.map("map-canvas").setView([latPusat, lngPusat], 14);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+
+      // --- 3. BATAS WILAYAH DESA (Opsional, sesuaikan jika perlu) ---
+      var batasDesa = [
+        [-7.95, 110.65],
+        [-7.95, 110.67],
+        [-7.98, 110.67],
+        [-7.98, 110.65],
+      ];
+      // ... kode polygon tetap sama ...
+
+      // --- 4. DATA LOKASI TERBARU (SESUAI REQUEST) ---
+      // Format: [Lat, Lng, Title, Kategori, Deskripsi, NamaFileGambar]
+      var dataLokasi = [
+        // --- BALAI & KELURAHAN ---
+        [
+          -7.9562022,
+          110.658971,
+          "Kantor Kelurahan Kelor",
+          "Pemerintahan",
+          "Pusat pemerintahan Desa",
+          "kelurahan.jpg",
+        ],
+        [
+          -7.9581942,
+          110.6583742,
+          "Balai Padukuhan Kelor",
+          "Balai Desa",
+          "Balai warga Kelor",
+          "balai_kelor.jpg",
+        ],
+        [
+          -7.968893,
+          110.6578622,
+          "Balai Padukuhan Ngunut Kidul",
+          "Balai Desa",
+          "Balai warga Ngunut Kidul",
+          "balai_ngunut_kidul.jpg",
+        ],
+        [
+          -7.964584,
+          110.662236,
+          "Balai Padukuhan Ngunut Lor",
+          "Balai Desa",
+          "Balai warga Ngunut Lor",
+          "balai_ngunut_lor.jpg",
+        ],
+        [
+          -7.9543291,
+          110.6580671,
+          "Balai Padukuhan Sudimoro",
+          "Balai Desa",
+          "Balai warga Sudimoro",
+          "balai_sudimoro.jpg",
+        ],
+        [
+          -7.9607417,
+          110.6594343,
+          "Balai Padukuhan Mengger",
+          "Balai Desa",
+          "Balai warga Mengger",
+          "balai_mengger.jpg",
+        ],
+        [
+          -7.9762532,
+          110.6589884,
+          "Balai Padukuhan Slametan",
+          "Balai Desa",
+          "Balai warga Slametan",
+          "balai_slametan.jpg",
+        ],
+        [
+          -7.977866,
+          110.66215,
+          "Balai Padukuhan Karangayu",
+          "Balai Desa",
+          "Balai warga Karangayu",
+          "balai_karangayu.jpg",
+        ],
+
+        // --- RUMAH PERANGKAT ---
+        [
+          -7.967928,
+          110.656421,
+          "Rumah Bapak Lurah",
+          "Perangkat Desa",
+          "Kediaman Kepala Desa",
+          "rumah_lurah.jpg",
+        ],
+        [
+          -7.968872,
+          110.657634,
+          "Rumah Dukuh Ngunut Kidul",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_ngunut_kidul.jpg",
+        ],
+        [
+          -7.964189,
+          110.661418,
+          "Rumah Dukuh Ngunut Lor",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_ngunut_lor.jpg",
+        ],
+        [
+          -7.958399,
+          110.661198,
+          "Rumah Dukuh Kelor",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_kelor.jpg",
+        ],
+        [
+          -7.955057,
+          110.654783,
+          "Rumah Dukuh Sudimoro",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_sudimoro.jpg",
+        ],
+        [
+          -7.9621026,
+          110.6596887,
+          "Rumah Dukuh Mengger",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_mengger.jpg",
+        ],
+        [
+          -7.972792,
+          110.6601,
+          "Rumah Dukuh Slametan",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_slametan.jpg",
+        ],
+        [
+          -7.978695,
+          110.661728,
+          "Rumah Dukuh Karangayu",
+          "Dukuh",
+          "Kediaman Dukuh",
+          "rumah_dukuh_karangayu.jpg",
+        ],
+        [
+          -7.967417,
+          110.662029,
+          "Rumah Bapak Jagabaya",
+          "Perangkat Desa",
+          "Kediaman Jagabaya",
+          "rumah_jayabaya.jpg",
+        ],
+        [
+          -7.9669691,
+          110.6536772,
+          "Rumah Ibu Carik",
+          "Perangkat Desa",
+          "Kediaman Carik",
+          "rumah_carik.jpg",
+        ],
+
+        // --- TEMPAT IBADAH ---
+        [
+          -7.9790574,
+          110.6633337,
+          "Masjid Nurul Jannah",
+          "Tempat Ibadah",
+          "Masjid",
+          "masjid_nurul_jannah.jpg",
+        ],
+        [
+          -7.9760911,
+          110.6590615,
+          "Masjid NURUL HIDAYAH",
+          "Tempat Ibadah",
+          "Masjid",
+          "masjid_nurul_hidayah.jpg",
+        ],
+        [
+          -7.9689879,
+          110.6589449,
+          "Masjid Nurul Muttaqin",
+          "Tempat Ibadah",
+          "Masjid",
+          "masjid_nurul_muttaqin.jpg",
+        ],
+        [
+          -7.9680038,
+          110.6632201,
+          "Mushola Al-Hikmah",
+          "Tempat Ibadah",
+          "Mushola",
+          "mushola_alhikmah.jpg",
+        ],
+        [
+          -7.964373,
+          110.6613727,
+          "Masjid Nurul Huda",
+          "Tempat Ibadah",
+          "Masjid",
+          "masjid_nurul_huda.jpg",
+        ],
+        [
+          -7.9624424,
+          110.6584503,
+          "Mushola Nurul Iman",
+          "Tempat Ibadah",
+          "Mushola",
+          "mushola_nurul_iman.jpg",
+        ],
+        [
+          -7.9561106,
+          110.6545929,
+          "Masjid Nurul Huda Kelor",
+          "Tempat Ibadah",
+          "Masjid",
+          "masjid_nurul_huda_kelor.jpg",
+        ],
+        [
+          -7.9659129,
+          110.655342,
+          "Mushola",
+          "Tempat Ibadah",
+          "Mushola",
+          "mushola_2.jpg",
+        ],
+        [
+          -7.9565452,
+          110.6582238,
+          "Gereja St. Petrus & Paulus",
+          "Tempat Ibadah",
+          "Gereja Katolik",
+          "gereja_katolik.jpg",
+        ],
+
+        // --- SEKOLAH ---
+        [
+          -7.9684085,
+          110.6587923,
+          "TK PKK Kelor Karangmojo",
+          "Pendidikan",
+          "TK/PAUD",
+          "tk_pkk_kelor.jpg",
+        ],
+        [
+          -7.9715022,
+          110.6595347,
+          "SD Negeri Slametan",
+          "Pendidikan",
+          "Sekolah Dasar",
+          "sdn_slametan.jpg",
+        ],
+      ];
+
+      // Variable penyimpan marker
+      var markers = {};
+
+      // --- 5. RENDER MARKER & POPUP GAMBAR ---
+      dataLokasi.forEach(function (item) {
+        var marker = L.marker([item[0], item[1]]).addTo(map);
+
+        // HTML Popup dengan Gambar
+        // Perhatikan tag <img src="..."> yang ditambahkan
+        var contentPopup = `
+                <div style="text-align:center; width:200px;">
+                    <img src="assets/img/${item[5]}" style="width:100%; height:120px; object-fit:cover; border-radius:5px; margin-bottom:8px;" onerror="this.src='https://placehold.co/200x120?text=No+Image'">
+                    
+                    <b style="color:#2e7d32; font-size:14px;">${item[2]}</b><br>
+                    <span style="background:#eee; padding:2px 5px; font-size:10px; border-radius:3px;">${item[3]}</span><br>
+                    <p style="margin:5px 0; font-size:12px;">${item[4]}</p>
+                    
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${item[0]},${item[1]}" target="_blank" style="display:inline-block; margin-top:5px; color:#fff; background:#2563eb; padding:5px 10px; border-radius:15px; text-decoration:none; font-size:11px;">📍 Rute Maps</a>
+                </div>
+            `;
+
+        marker.bindPopup(contentPopup);
+
+        // Simpan marker untuk fitur klik otomatis
+        var key = item[0] + "," + item[1];
+        markers[key] = marker;
+      });
+
+      // --- 6. FUNGSI ZOOM & BUKA POPUP OTOMATIS ---
+      function fokusKeLokasi(lat, lng) {
+        document
+          .getElementById("peta-bawah")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+
+        setTimeout(function () {
+          map.flyTo([lat, lng], 18, { animate: true, duration: 2 });
+
+          var key = lat + "," + lng;
+          if (markers[key]) {
+            markers[key].openPopup(); // Buka balon peta otomatis
+          }
+        }, 800);
+      }
+      // --- 7. LOGIKA SLIDER KKN ---
+      var currentSlide = 0;
+      var slides = document.querySelectorAll(".slide");
+      var totalSlides = slides.length;
+      var wrapper = document.getElementById("sliderWrapper");
+      var autoSlideInterval;
+
+      // Fungsi untuk menggeser slide
+      function showSlide(index) {
+        // Reset index jika melebihi batas (Looping)
+        if (index >= totalSlides) {
+          currentSlide = 0;
+        } else if (index < 0) {
+          currentSlide = totalSlides - 1;
+        } else {
+          currentSlide = index;
+        }
+
+        // Geser wrapper menggunakan CSS transform
+        var offset = -currentSlide * 100; // Geser -100%, -200%, dst.
+        wrapper.style.transform = "translateX(" + offset + "%)";
+      }
+
+      // Fungsi Tombol Manual (Next/Prev)
+      function moveSlide(direction) {
+        showSlide(currentSlide + direction);
+        resetAutoSlide(); // Reset timer agar tidak bentrok saat diklik manual
+      }
+
+      // Fungsi Auto Slide (Otomatis geser tiap 3 detik)
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(function () {
+          moveSlide(1);
+        }, 3000); // 3000ms = 3 detik
+      }
+
+      // Reset Timer saat user klik manual (agar lebih nyaman)
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      // Jalankan Auto Slide saat halaman dimuat
+      startAutoSlide();
+    </script>
+  </body>
+</html>

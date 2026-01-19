@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMKM Desa Kelor - Pusat Ekonomi Warga</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <nav>
+      <div class="logo">DESA KELOR</div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="index.html#profil">Profil</a></li>
+        <li><a href="umkm.html" style="color: var(--primary)">UMKM Desa</a></li>
+        <li><a href="#peta-umkm">Peta Lokasi</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero-umkm">
+      <div class="overlay-umkm"></div>
+
+      <div class="hero-content-umkm">
+        <span class="badge-kategori">🛍️ Ekonomi & Kuliner</span>
+        <h1>Jelajahi Cita Rasa<br>Desa Kelor</h1>
+        <p>
+          Temukan ragam produk lokal, kuliner lezat, dan kerajinan tangan
+          karya warga Desa Kelor.
+        </p>
+        
+        <a href="#daftar-umkm" class="btn-explore">
+           Mulai Menjelajah 👇
+        </a>
+      </div>
+    </section>
+    <section id="daftar-umkm" class="section">
+      <div class="section-title">
+        <h2>Daftar UMKM & Kuliner</h2>
+        <p>Klik kartu di bawah untuk melihat lokasi di peta</p>
+      </div>
+
+      <div class="grid-container">
+        <div class="card" onclick="fokusKeLokasi(-7.964378, 110.658314)">
+          <img
+            src="assets/img/mi_ayam_wage.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Mi+Ayam+Pasar+Wage'"
+          />
+          <div class="card-content">
+            <h3>Mi Ayam Pasar Wage</h3>
+            <p>Kuliner mi ayam legendaris di area pasar.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.965184, 110.660780)">
+          <img
+            src="assets/img/bakpia_rizky.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Bakpia+Rizky'"
+          />
+          <div class="card-content">
+            <h3>Bakpia Rizky</h3>
+            <p>Pusat oleh-oleh bakpia khas Desa Kelor.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.956990, 110.660867)">
+          <img
+            src="assets/img/ogk.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Omah+Godhong+Kelor'"
+          />
+          <div class="card-content">
+            <h3>OGK (Omah Godhong Kelor)</h3>
+            <p>Produk olahan berbahan dasar daun kelor.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.955011, 110.655004)">
+          <img
+            src="assets/img/warung_pakdhe.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Warung+Pak+Dhe'"
+          />
+          <div class="card-content">
+            <h3>Warung Pak Dhe</h3>
+            <p>Spesial menu kremes dan bakar yang menggugah selera.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.955533, 110.654600)">
+          <img
+            src="assets/img/bakso_kelor.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Bakso+Kelor'"
+          />
+          <div class="card-content">
+            <h3>Bakso Kelor Hitam Manis</h3>
+            <p>Inovasi bakso sehat dengan campuran kelor.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.956795, 110.655599)">
+          <img
+            src="assets/img/gudeg_geka.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Rumah+Gudeg+GeKa'"
+          />
+          <div class="card-content">
+            <h3>Rumah Gudeg GeKa</h3>
+            <p>Sajian gudeg nikmat dengan cita rasa otentik.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.956247, 110.657922)">
+          <img
+            src="assets/img/padang_rejeki.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Masakan+Padang+Rejeki'"
+          />
+          <div class="card-content">
+            <h3>Masakan Padang Rejeki</h3>
+            <p>Nasi Padang lezat dengan porsi memuaskan.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="fokusKeLokasi(-7.956507, 110.657935)">
+          <img
+            src="assets/img/joglo_mart.jpg"
+            class="card-img"
+            onerror="this.src='https://placehold.co/600x400?text=Joglo+Mart'"
+          />
+          <div class="card-content">
+            <h3>Joglo Mart</h3>
+            <p>Toserba lengkap untuk kebutuhan sehari-hari.</p>
+            <span class="click-info">📍 Lihat di Peta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="peta-umkm" class="section bg-light">
+      <div class="section-title">
+        <h2>Peta Persebaran UMKM</h2>
+        <p>Temukan lokasi kuliner dan belanja terdekat</p>
+      </div>
+      <div id="map-canvas"></div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>DESA KELOR</h3>
+          <p>
+            Mewujudkan masyarakat yang mandiri, berbudaya, dan sejahtera dengan
+            memanfaatkan potensi kearifan lokal dan teknologi.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Jelajahi</h3>
+          <ul>
+            <li><a href="index.html#home">Beranda</a></li>
+            <li><a href="index.html#profil">Profil Desa</a></li>
+            <li><a href="umkm.html">UMKM Desa</a></li>
+            <li><a href="#peta-umkm">Peta Wilayah</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Hubungi Kami</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Jl. Raya Kelor No. 1, Kec. Karangmojo, Gunungkidul, DIY 55891</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>admin@desakelor.id</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>(0274) 123-4567</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Ikuti Kami</h3>
+          <p>Dapatkan informasi terbaru melalui sosial media kami:</p>
+          <div class="social-links">
+            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/628123456789" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Pemerintah Desa Kelor. Dibuat dengan ❤️ oleh Mahasiswa KKN.</p>
+      </div>
+    </footer>
+
+    <script>
+      // --- 1. CONFIG NAVIGASI ---
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+      window.addEventListener("scroll", function () {
+        document
+          .querySelector("nav")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // --- 2. SETUP PETA ---
+      // Pusat peta diambil rata-rata dari lokasi UMKM
+      var latPusat = -7.96;
+      var lngPusat = 110.658;
+
+      var map = L.map("map-canvas").setView([latPusat, lngPusat], 15);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+
+      // --- 3. DATA UMKM (Sesuai Request) ---
+      // Format: [Lat, Lng, Nama, Deskripsi, ImageFile, LinkGmaps]
+      var dataUMKM = [
+        [
+          -7.964378,
+          110.658314,
+          "Mi Ayam Pasar Wage",
+          "Kuliner Pasar",
+          "mi_ayam_wage.jpg",
+          "https://maps.app.goo.gl/5tV2qNnVSzvpZH9m9",
+        ],
+        [
+          -7.965184,
+          110.66078,
+          "Bakpia Rizky",
+          "Oleh-oleh Khas",
+          "bakpia_rizky.jpg",
+          "https://maps.app.goo.gl/CtnymDLLBjWbQdu87",
+        ],
+        [
+          -7.95699,
+          110.660867,
+          "OGK (Omah Godhong Kelor)",
+          "Olahan Kelor",
+          "ogk.jpg",
+          "https://maps.app.goo.gl/bWzjfmixkkR2XHJ49",
+        ],
+        [
+          -7.955011,
+          110.655004,
+          "Warung Pak Dhe",
+          "Spesial Kremes & Bakar",
+          "warung_pakdhe.jpg",
+          "https://maps.app.goo.gl/HJLnBPHVSBpEGNZJ6",
+        ],
+        [
+          -7.955533,
+          110.6546,
+          "Bakso Kelor Hitam Manis",
+          "Kuliner Unik",
+          "bakso_kelor.jpg",
+          "https://maps.app.goo.gl/QEi8dsKWuUkMWt2V6",
+        ],
+        [
+          -7.956795,
+          110.655599,
+          "Rumah Gudeg GeKa",
+          "Kuliner Gudeg",
+          "gudeg_geka.jpg",
+          "https://maps.app.goo.gl/67jaMxV7mCCg7aH58",
+        ],
+        [
+          -7.956247,
+          110.657922,
+          "Masakan Padang Rejeki",
+          "Rumah Makan Padang",
+          "padang_rejeki.jpg",
+          "https://maps.app.goo.gl/wLXX8q8UDa1VRezQ9",
+        ],
+        [
+          -7.956507,
+          110.657935,
+          "Joglo Mart",
+          "Minimarket Desa",
+          "joglo_mart.jpg",
+          "https://maps.app.goo.gl/S9BSNkjWC3TjAk5y5",
+        ],
+      ];
+
+      var markers = {};
+
+      // --- 4. RENDER MARKER ---
+      dataUMKM.forEach(function (item) {
+        var marker = L.marker([item[0], item[1]]).addTo(map);
+
+        // Popup dengan tombol ke Google Maps asli
+        var contentPopup = `
+            <div style="text-align:center; width:200px;">
+                <img src="assets/img/${item[4]}" style="width:100%; height:120px; object-fit:cover; border-radius:5px; margin-bottom:8px;" onerror="this.src='https://placehold.co/200x120?text=Foto+UMKM'">
+                
+                <b style="color:#2e7d32; font-size:14px;">${item[2]}</b><br>
+                <span style="background:#eee; padding:2px 5px; font-size:10px; border-radius:3px;">${item[3]}</span><br>
+                
+                <a href="${item[5]}" target="_blank" style="display:inline-block; margin-top:8px; color:#fff; background:#d32f2f; padding:5px 10px; border-radius:15px; text-decoration:none; font-size:11px;">🗺️ Buka Google Maps</a>
+            </div>
+        `;
+
+        marker.bindPopup(contentPopup);
+
+        // Simpan marker untuk fungsi klik dari kartu
+        var key = item[0] + "," + item[1];
+        markers[key] = marker;
+      });
+
+      // --- 5. FUNGSI SCROLL & ZOOM ---
+      function fokusKeLokasi(lat, lng) {
+        document
+          .getElementById("peta-umkm")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+
+        setTimeout(function () {
+          map.flyTo([lat, lng], 18, { animate: true, duration: 1.5 });
+
+          var key = lat + "," + lng;
+          if (markers[key]) {
+            markers[key].openPopup();
+          }
+        }, 800);
+      }
+    </script>
+  </body>
+</html>

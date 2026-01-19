@@ -1,0 +1,884 @@
+/* --- 1. RESET & VARIABLES --- */
+:root {
+    --primary: #2e7d32; /* Hijau Desa */
+    --accent: #66bb6a;
+    --dark: #1b5e20;
+    --text: #333;
+    --bg-light: #f4f9f4; /* Background agak kehijauan sangat muda */
+    --white: #fff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+html { scroll-behavior: smooth; }
+body { color: var(--text); background: var(--white); line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- 2. NAVBAR GLASSMORPHISM --- */
+nav {
+    position: fixed; width: 100%; top: 0; left: 0;
+    padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000; transition: 0.4s;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(5px);
+}
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 5%;
+}
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+/* --- 3. HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    /* OVERLAY GELAP + GAMBAR BACKGROUND */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../img/background.png');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    color: white; padding: 0 20px;
+}
+.hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.hero p { font-size: 1.2rem; margin-bottom: 25px; max-width: 600px; }
+.btn {
+    padding: 12px 30px; background: var(--primary); color: white; border: none;
+    border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+.btn:hover { background: var(--accent); transform: scale(1.05); }
+
+/* --- 4. MAP SECTION --- */
+#map-canvas {
+    width: 100%; height: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 5px solid white;
+}
+
+/* --- 5. CARDS & LAYOUT --- */
+.section { padding: 5rem 8%; }
+.bg-light { background: var(--bg-light); }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.section-title h2 { font-size: 2.2rem; color: var(--dark); margin-bottom: 0.5rem; }
+
+.grid-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+}
+
+.card {
+    background: white; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
+    border: 1px solid #eee; cursor: pointer; /* Indikator bisa diklik */
+    position: relative;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.card:active { transform: scale(0.98); }
+
+.card-content { padding: 2rem; }
+.card h3 { color: var(--primary); margin-bottom: 0.8rem; }
+.card p { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+.click-info {
+    display: block; font-size: 0.8rem; color: var(--accent);
+    font-weight: 600; margin-top: 10px;
+}
+
+/* --- 6. FOOTER & RESPONSIVE --- */
+/* --- 9. STYLE FOOTER MODERN --- */
+
+footer {
+    background-color: #1a1a1a; /* Hitam abu gelap */
+    color: #bbb;
+    padding-top: 4rem;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    /* Membuat 4 kolom responsif */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-col h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Garis kecil di bawah judul footer */
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary); /* Warna Hijau */
+}
+
+/* Style Link Navigasi */
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #bbb;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+    padding-left: 5px; /* Efek geser saat hover */
+}
+
+/* Style Kontak List */
+.contact-list li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.contact-list i {
+    color: var(--primary);
+    margin-top: 5px;
+}
+
+/* Style Tombol Sosmed */
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    color: white;
+    border-radius: 50%; /* Bulat */
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+/* Warna-warni saat hover */
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+.social-icon.facebook:hover { background: #1877f2; }
+.social-icon.instagram:hover { background: #e1306c; }
+.social-icon.youtube:hover { background: #ff0000; }
+.social-icon.whatsapp:hover { background: #25d366; }
+
+/* Style Footer Bawah (Copyright) */
+.footer-bottom {
+    background: #111;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .footer-container {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute; right: 0; top: 60px; background: white;
+        flex-direction: column; width: 100%; padding: 2rem; display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center;
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+    .hero h1 { font-size: 2.5rem; }
+    #map-canvas { height: 350px; }
+}
+
+/* --- TAMBAHAN STYLE UNTUK FITUR DESA --- */
+
+/* 1. Statistik Container */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    flex: 1 1 200px; /* Responsif */
+    border-top: 4px solid var(--primary);
+}
+
+.stat-item h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+/* 2. Team/Perangkat Desa Cards */
+.team-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.avatar {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: #f4f9f4;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 3. Penyesuaian Info Card (Visi Misi) */
+.info-card {
+    text-align: left;
+    border-left: 5px solid var(--primary);
+}
+
+/* Pastikan Map di Bawah tetap Besar */
+#map-canvas {
+    height: 500px;
+    width: 100%;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+/* --- TAMBAHAN STYLE UNTUK GAMBAR CARD --- */
+
+.card-img {
+    width: 100%;           /* Lebar memenuhi kartu */
+    height: 200px;         /* Tinggi tetap agar semua kartu sama rata */
+    object-fit: cover;     /* Gambar dipotong rapi jika ukurannya beda, tidak gepeng */
+    display: block;        /* Menghilangkan celah di bawah gambar */
+    border-bottom: 1px solid #eee; /* Garis pemisah tipis dengan teks */
+}
+
+/* Update padding card-content agar lebih lega */
+.card-content {
+    padding: 1.5rem;
+    text-align: left;      /* Teks rata kiri agar lebih enak dibaca */
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* --- STYLE TAMBAHAN UNTUK JUDUL KATEGORI --- */
+
+.category-title {
+    margin-top: 3rem;       /* Jarak atas */
+    margin-bottom: 1.5rem;  /* Jarak bawah ke kartu */
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: var(--primary);
+    border-left: 5px solid var(--accent); /* Garis di samping judul */
+    padding-left: 15px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 3rem 0; /* Jarak pemisah antar sesi */
+}
+
+/* Pastikan gambar dalam kartu proporsional */
+.card-img {
+    width: 100%;
+    height: 180px;        /* Tinggi gambar disamakan */
+    object-fit: cover;    /* Gambar tidak gepeng */
+    border-bottom: 1px solid #eee;
+}
+
+/* --- 7. STYLE GALERI KKN SLIDER --- */
+
+.slider-container {
+    position: relative;
+    max-width: 800px; /* Lebar maksimal slider */
+    margin: 0 auto;   /* Posisi tengah */
+    overflow: hidden; /* Sembunyikan gambar yang meluber ke samping */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.slider-wrapper {
+    display: flex; /* Menyusun gambar berjejer ke samping */
+    transition: transform 0.5s ease-in-out; /* Animasi geser halus */
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%; /* Setiap slide memenuhi lebar container */
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px; /* Tinggi tetap agar rapi */
+    object-fit: cover; /* Gambar tidak gepeng */
+    display: block;
+}
+
+/* Tombol Navigasi (Next/Prev) */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.slider-btn:hover {
+    background-color: var(--primary); /* Warna Hijau saat hover */
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* Keterangan Teks KKN */
+.kkn-info {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #e8f5e9; /* Hijau sangat muda */
+    border-radius: 10px;
+    border-left: 5px solid var(--primary);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kkn-info h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .slide img { height: 250px; } /* Gambar lebih kecil di HP */
+    .slider-btn { padding: 10px; width: 40px; height: 40px; font-size: 14px; }
+}
+/* --- 8. STYLE BARU PROFIL DESA --- */
+
+/* Wrapper agar konten tidak terlalu lebar */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Layout Umum Profil */
+.profil-row {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+/* --- A. Bagian Sejarah (Kiri Teks, Kanan Gambar) --- */
+.sejarah-container {
+    flex-wrap: wrap; /* Agar responsif di HP turun ke bawah */
+}
+
+.profil-text {
+    flex: 1;
+}
+
+.profil-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.heading-deco {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Garis hiasan di bawah judul Sejarah */
+.heading-deco::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+.profil-img {
+    flex: 1;
+    position: relative;
+}
+
+.profil-img img {
+    width: 100%;
+    border-radius: 20px 0 20px 0; /* Sudut tumpul estetik */
+    box-shadow: 10px 10px 0px rgba(46, 125, 50, 0.2); /* Efek bayangan kotak */
+    transition: 0.3s;
+}
+
+.profil-img img:hover {
+    transform: translateY(-5px);
+    box-shadow: 15px 15px 0px rgba(46, 125, 50, 0.4);
+}
+
+/* --- B. Bagian Visi & Misi --- */
+.visi-misi-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Visi lebih kecil sedikit dari Misi */
+    gap: 2rem;
+}
+
+/* Kartu Visi */
+.card-visi {
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-visi .icon-header {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.2);
+    width: 80px; height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+}
+
+.card-visi blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.card-visi blockquote span {
+    font-weight: 700;
+    color: #a5d6a7; /* Hijau muda terang */
+}
+
+/* Kartu Misi */
+.card-misi {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card-misi h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-misi ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.check-icon {
+    color: var(--primary);
+    font-weight: bold;
+    background: #e8f5e9;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* --- RESPONSIF (HP) --- */
+@media (max-width: 768px) {
+    .profil-row {
+        flex-direction: column; /* Ubah jadi atas-bawah */
+        gap: 2rem;
+    }
+    
+    .visi-misi-container {
+        grid-template-columns: 1fr; /* Jadi 1 kolom */
+    }
+
+    .profil-img img {
+        margin-top: 1rem;
+    }
+}
+/* --- 10. STYLE BERANDA MODERN (HERO & STATS) --- */
+
+/* Reset Hero Lama (jika ada conflict) */
+.hero-modern {
+    position: relative;
+    height: 100vh; /* Tinggi penuh layar */
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    /* Ganti URL gambar background di sini */
+    background: url('../img/background.png') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+/* Overlay Hitam Transparan */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    z-index: 1;
+}
+
+/* Konten Teks */
+.hero-content-modern {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    margin-bottom: 80px; /* Memberi ruang untuk statistik di bawah */
+    animation: fadeInUp 1s ease-out;
+}
+
+.welcome-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-content-modern h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Tombol-tombol */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-primary {
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 2px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    padding: 12px 30px;
+    background: transparent;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* --- STATISTIK GLASSMORPHISM --- */
+.hero-stats-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 2px; /* Jarak antar kotak (kecil karena border) */
+    background: rgba(255, 255, 255, 0.1); /* Background transparan */
+    backdrop-filter: blur(15px); /* Efek Blur Kaca */
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 20px 0;
+}
+
+.stat-box {
+    flex: 1; /* Lebar rata */
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 20px;
+    color: white;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.stat-box:last-child {
+    border-right: none;
+}
+
+.stat-box:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+.stat-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* --- ANIMASI KEYFRAMES --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animasi Mouse Scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 120px; /* Di atas statistik */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 20px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: white;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 18px; opacity: 0; }
+}
+
+/* --- RESPONSIF HP --- */
+@media (max-width: 768px) {
+    .hero-content-modern h1 { font-size: 2.5rem; }
+    .hero-stats-container {
+        flex-wrap: wrap; /* Turun ke bawah jika layar kecil */
+        background: rgba(0, 0, 0, 0.6); /* Lebih gelap di HP agar baca */
+        position: relative; /* Tidak absolute lagi */
+        backdrop-filter: none;
+    }
+    .stat-box {
+        flex: 1 1 45%; /* 2 kolom per baris */
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-right: none;
+        padding: 20px;
+    }
+    .scroll-indicator { display: none; } /* Sembunyikan mouse di HP */
+    .hero-content-modern { margin-bottom: 20px; }
+}
+/* --- 11. STYLE HERO UMKM MODERN --- */
+
+.hero-umkm {
+    position: relative;
+    height: 60vh;       /* Tinggi 60% dari layar */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+
+    /* --- PENGATURAN BACKGROUND GAMBAR --- */
+    /* Ganti 'background.png' dengan nama file gambar pasar/kuliner Anda jika ada */
+    background: url('../img/background.png'); 
+    background-size: cover;        /* Gambar memenuhi area */
+    background-position: center;   /* Gambar rata tengah */
+    background-attachment: fixed;  /* EFEK PARALLAX (Gambar diam saat scroll) */
+}
+
+/* Overlay di atas gambar agar tulisan terbaca */
+.overlay-umkm {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradasi Hitam ke Oranye transparan (Memberi kesan hangat/makanan) */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(230, 81, 0, 0.3));
+    z-index: 1;
+}
+
+.hero-content-umkm {
+    position: relative;
+    z-index: 2; /* Agar tulisan berada di atas overlay */
+    max-width: 700px;
+    padding: 0 20px;
+    animation: fadeInScale 1s ease-out;
+}
+
+/* Badge Kecil di atas Judul */
+.badge-kategori {
+    display: inline-block;
+    background: #ff9800; /* Warna Oranye Cerah */
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+}
+
+.hero-content-umkm h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.7); /* Bayangan teks kuat */
+    line-height: 1.2;
+}
+
+.hero-content-umkm p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    color: #f1f1f1;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tombol Explore */
+.btn-explore {
+    display: inline-block;
+    padding: 12px 40px;
+    background: white;
+    color: #e65100; /* Teks Oranye Gelap */
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.btn-explore:hover {
+    background: #ff9800;
+    color: white;
+    transform: translateY(-5px); /* Efek naik saat hover */
+    box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5);
+}
+
+/* Animasi Masuk */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+    .hero-umkm {
+        height: 50vh; /* Tinggi dikurangi di HP */
+        background-attachment: scroll; /* Parallax dimatikan di HP agar ringan */
+    }
+    .hero-content-umkm h1 { font-size: 2.5rem; }
+}
